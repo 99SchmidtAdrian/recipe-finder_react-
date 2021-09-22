@@ -1,0 +1,7 @@
+#navbar li a{
+    transition: all 0.3s cubic-bezier(.15,1.02,.69,.25);
+}
+#navbar li a:hover {
+    transform: translateY(5px);
+    background-color:  #1F2937;
+}
