@@ -5,7 +5,7 @@ import Navbar from "../Navbar/Navbar"
 const AboutVeganism = () => {
     return <div className="bg-gray-100 bg-opacity-80 w-full sm:w-11/12 lg:w-10/12 2xl:w-8/12 mx-auto pb-10 border-2 border-gray-600 rounded-xl md:border-none">
         <Navbar />
-    <h1 className="text-3xl text-center text-gray-800 my-5 xl:text-5xl">Why vegan?</h1>
+    <h1 className="text-3xl text-center text-gray-800 my-5 xl:text-5xl space font-extrabold tracking-wider">Why vegan?</h1>
     <div className="container text-black mx-auto overflow-hidden">
         <Article title="For the animals" imgIsLeft={false} imgSrc='https://pixboost.com/api/2/img/Veggies/pigs.jpg/resize?size=543x562&auth=OTcyODUxNQ__'>
                     Preventing the exploitation of animals is not the only reason for  becoming vegan, but for many it
@@ -23,7 +23,7 @@ const AboutVeganism = () => {
                     American Academy of Nutrition and Dietetics </a>recognise that they are suitable for every
                     age and stage of life. Some research has linked vegan diets with lower blood pressure and
                     cholesterol, and lower rates of heart disease, type 2 diabetes and some types of cancer.
-                    <strong>Going vegan </strong>is a great opportunity to learn more about nutrition and cooking, and improve your
+                    Going vegan is a great opportunity to learn more about nutrition and cooking, and improve your
                     diet. Getting your nutrients from plant foods allows more room in your diet for health-promoting
                     options like whole grains, fruit, nuts, seeds and vegetables, which are packed full of
                     beneficial fibre, vitamins and minerals.</Article>
@@ -33,7 +33,7 @@ const AboutVeganism = () => {
                     greener life. One of the most effective things an individual can do to lower their carbon
                     footprint is to avoid all animal products. This goes way beyond the problem of cow flatulence!</Article>
         
-        <Article title="Why is meat and diary so bad for the environment?" imgIsLeft={true} imgSrc="https://pixboost.com/api/2/img/Veggies/pig-friend.jpg/resize?size=543x562&auth=OTcyODUxNQ__">
+        <Article title="Why is meat and diary so bad for the environment?" imgIsLeft={true} imgSrc="https://pixboost.com/api/2/img/Veggies/milk.jpg/resize?size=400&auth=OTcyODUxNQ__">
                     The production of meat and other animal products places a heavy burden on the environment - from
                     crops and water required to feed the animals, to the transport and other processes involved from
                     farm to fork. The vast amount of grain feed required for meat production is a significant
@@ -54,7 +54,6 @@ const AboutVeganism = () => {
                     take a stand against inefficient food systems which disproportionately affect the poorest people
                     all over the world.</Article>
 
-        <Article title="" imgIsLeft imgSrc></Article>
     </div>
     <div className="container mx-auto w-full">
         <div className="flex flex-col px-5 2xl:my-auto 2xl:mx-auto 2xl:mr-8 md:p-5 md:m-5 overflow-hidden">
