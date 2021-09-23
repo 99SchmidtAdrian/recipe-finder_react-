@@ -1,12 +1,20 @@
 import './App.css';
-import MainPage from './components/MainPage/MainPage';
+import AboutVeganism from './components/AboutVeganism/AboutVeganism';
+import Footer from './components/Footer/Footer';
+import SearchBar from './components/SearchBar/SearchBar';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Asd from './asd';
 
 function App() {
 
-  return (
-    <div className="App">
-      <MainPage />
-    </div>
+  return (<Router>
+      <div className="bg-cover bg-fixed background-img">
+          <SearchBar />
+          <AboutVeganism />
+        <Footer />
+      </div>
+      <Route path="/asd" component={Asd} />
+    </Router>
   );
 }
 
