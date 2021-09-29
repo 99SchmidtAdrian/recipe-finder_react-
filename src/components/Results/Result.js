@@ -1,5 +1,5 @@
-const Result = props => {
-    return <div>{props.name}</div>
-}
+const Result = (props) => {
+  return <div>{props.name}</div>;
+};
 
-export default Result
+export default Result;
