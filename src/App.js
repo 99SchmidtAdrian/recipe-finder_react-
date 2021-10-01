@@ -1,12 +1,12 @@
 import "./App.css";
-import { React, Fragment, useState } from "react";
+import { React, Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./components/MainPage/MainPage";
 import Results from "./components/Results/Results";
 import Recipes from "./components/Recipes/Recipes";
+import './styles/output.css';
 
 function App() {
-
   return (
     <Fragment>
       <Router>
