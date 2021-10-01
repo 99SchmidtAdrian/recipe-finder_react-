@@ -9,14 +9,10 @@ const Results = () => {
   return (
     <div className="bg-blue-200 h-screen items-center">
       {dummyData.map((recipe) =>
-        recipe.name.includes(keywords.keywords) ||
+        (recipe.name.includes(keywords.keywords) ||
         recipe.ingredients.includes(keywords.keywords) ||
-        recipe.holiday.includes(keywords.keywords) ||
-        recipe.diet.includes(keywords.keywords) ? (
+        recipe.diet.includes(keywords.keywords)) &&
           <Result key={recipe.id} name={recipe.name} />
-        ) : (
-          <React.Fragment key={recipe.id} />
-        )
       )}
     </div>
   );

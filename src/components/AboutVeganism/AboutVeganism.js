@@ -1,10 +1,11 @@
 import React from "react";
 import Article from "../Article/Article";
 import Navbar from "../Navbar/Navbar";
+import Card from "../ui/Card/Card";
 
 const AboutVeganism = () => {
   return (
-    <div className="bg-gray-100 bg-opacity-80 w-full sm:w-11/12 lg:w-10/12 2xl:w-8/12 mx-auto pb-10 border-2 border-gray-600 rounded-xl md:border-none">
+    <Card className="sm:w-11/12 lg:w-10/12 2xl:w-8/12 mx-auto pb-10 border-2 border-gray-600 md:border-none">
       <Navbar />
       <h1 className="text-3xl text-center text-gray-800 my-5 xl:text-5xl space font-extrabold tracking-wider">
         Why vegan?
@@ -154,7 +155,7 @@ const AboutVeganism = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 
