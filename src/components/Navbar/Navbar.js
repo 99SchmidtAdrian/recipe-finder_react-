@@ -1,4 +1,4 @@
-import SearchInput from "../ui/Input/SearchInput";
+import SearchInput from "../Search/SearchInput";
 import "./Navbar.css";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ const Navbar = () => {
           >
             <li className="float-left br-1 p-1 smoothscroll">
               <a
-                href="#top"
+                href="https://en.3ok.hu/"
                 className="block text-white  text-center px-3 lg:px-5 py-2 no-underline link"
               >
                 More about veganism
@@ -34,17 +34,18 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="float-left br-1 p-1 smoothscroll">
-              <a
-                href="#top"
-                className="block text-white  text-center px-3 lg:px-5 py-2 no-underline link"
+              <Link
+                to={{ pathname: "/suggest" }}
+                className="block text-white text-center px-3 lg:px-5 py-2 no-underline link"
               >
                 Suggest Recipes
-              </a>
+              </Link>
             </li>
           </div>
           <SearchInput
             refFor={navbarSearch}
             className="h-8 float-right mt-2 mx-auto mr-2 py-1 w-64 lg:right-8 xl:right-10 2xl:right-24"
+            placeholder="What are you looking for?"
           />
         </ul>
       </div>

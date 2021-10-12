@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import logo from "../../images/25452.svg";
-import SearchInput from "../ui/Input/SearchInput";
+import SearchInput from "./SearchInput";
 
 const SearchBar = () => {
   const mainSearch = useRef();
@@ -11,6 +11,7 @@ const SearchBar = () => {
       <SearchInput
         refFor={mainSearch}
         className="lg:w-2/5 md:w-2/4 w-4/5 p-2"
+        placeholder="What are you looking for?"
       />
       <div id="scroll-down" className="">
         <a href="#scroll">

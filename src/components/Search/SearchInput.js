@@ -1,8 +1,8 @@
-import searchIcon from "../../../images/search-24px.svg";
+import searchIcon from "../../images/search-24px.svg";
 import { useHistory } from "react-router-dom";
 
 const SearchInput = (props) => {
-  let searchWords = useHistory();
+  const searchWords = useHistory();
 
   const searchHandler = (event) => {
     event.preventDefault();
@@ -22,9 +22,9 @@ const SearchInput = (props) => {
     >
       <input
         type="text"
-        placeholder="What are you looking for?"
+        placeholder={props.placeholder}
         autoComplete="off"
-        className="bg-none w-5/6 sm:w-10/12 text-center outline-none"
+        className={props.inputClass + " bg-none w-5/6 sm:w-10/12 text-center outline-none"}
         ref={props.refFor}
       />
       <button
