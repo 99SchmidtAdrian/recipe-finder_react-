@@ -36,7 +36,7 @@ const AboutVeganism = () => {
             href="https://www.bda.uk.com/"
             target="_blank"
             rel="noreferrer"
-            className="text-green-300"
+            className="text-green-600 font-semibold hover:underline"
           >
             British Dietetic Association{" "}
           </a>
@@ -45,7 +45,7 @@ const AboutVeganism = () => {
             href="http://www.eatrightpro.org/~/media/eatrightpro%20files/practice/position%20and%20practice%20papers/position%20papers/vegetarian-diet.ashx"
             target="_blank"
             rel="noreferrer"
-            className="text-green-300"
+            className="text-green-600 font-semibold hover:underline"
           >
             American Academy of Nutrition and Dietetics{" "}
           </a>
@@ -59,7 +59,6 @@ const AboutVeganism = () => {
           vegetables, which are packed full of beneficial fibre, vitamins and
           minerals.
         </Article>
-
         <Article
           title="For the environment"
           imgIsLeft={false}

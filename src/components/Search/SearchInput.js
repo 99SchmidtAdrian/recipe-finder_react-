@@ -28,7 +28,7 @@ const SearchInput = (props) => {
         ref={props.refFor}
       />
       <button
-        className="focus:outline-none absolute right-2"
+        className="focus:outline-none absolute right-2 hover:rotate-12 transition-all duration-300"
         id="searchbarSubmit"
         onClick={searchHandler}
       >
