@@ -1,15 +1,36 @@
-import dummyData from "../../dummyData";
 import RecipeItem from "./RecipeItem";
-import Card from "../ui/Card/Card";
-import React, { useState, useEffect } from "react";
-// import Sort from "./Sort";
+import Card from "../ui/Card";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Filter from "./Filter";
+import Fetching from "../ui/Fetching";
 
 const AllRecipes = () => {
   const [isFiltered, setIsFiltered] = useState(false);
   const [filters, setFilters] = useState({ filter: [] });
-  const [noResults, setNoResults] = useState(false);
-  const [gridCols, setGridCols] = useState(3);
+  const [isFetching, setIsFetching] = useState(false);
+  const resultsRef = useRef();
+  const [data, setData] = useState([]);
+
+  const fetchRecipesHandler = useCallback(async () => {
+    setIsFetching(true);
+    const response = await fetch(
+      "https://api.jsonbin.io/v3/c/61cb68ffea3bf56821393a5f/",
+      {
+        headers: {
+          "X-Master-Key":
+            "$2b$10$q3QXAUseWI5cok7RdeBLqO4x0QrLWpxQvsy.Ew4DAd4kfc0JLV3mm"
+        }
+      }
+    );
+    const convertedRecipes = await response.json();
+    const recipes = convertedRecipes.schemaDoc.recipes;
+    setData(recipes);
+    setIsFetching(false);
+  },[]);
+
+  useEffect(() => {
+    fetchRecipesHandler();
+  }, [fetchRecipesHandler]);
 
   const setFiltersHandler = (newFilter) => {
     if ([...filters.filter].includes(newFilter)) {
@@ -27,7 +48,7 @@ const AllRecipes = () => {
   };
 
   const mapAllRecipe = () => {
-    return dummyData.map((recipe) => (
+    return data.map((recipe) => (
       <RecipeItem
         key={recipe.id}
         name={recipe.name}
@@ -38,49 +59,28 @@ const AllRecipes = () => {
   };
 
   const mapFilteredItems = () => {
-    return dummyData.map(
+    return data.map(
       (recipe) =>
         filters.filter.every((v) => recipe.diet.includes(v)) && (
-          <RecipeItem
-            key={recipe.id}
-            name={recipe.name}
-            src={recipe.src}
-            className="mx-auto"
-          />
+          <RecipeItem key={recipe.id} name={recipe.name} src={recipe.src} />
         )
     );
   };
 
-  const noResultsDiv = () => {
-    return <div className="text-center mt-[50px] mb-[50px] text-3xl">No results</div>
-  }
-
-  useEffect(() => {
-    const resultsDiv = document.getElementById("results")
-    if(resultsDiv.getElementsByTagName('*').length !==0){
-      setNoResults(true)
-      setGridCols(3)
-    }else{
-      setGridCols(1)
-      setNoResults(false)
-    }
-  }, [filters.filter], [isFiltered]);
-
   return (
     <Card className="relative border border-gray-400">
-      {/* <Sort className="absolute left-10 top-16" /> */}
       <Filter
         onFilter={setFiltersHandler}
         onClear={clearFilterHandler}
         filters={filters}
       />
-      <div className={`px-24  py-10 grid grid-cols-${gridCols}`} id="results">
-      {isFiltered ? mapFilteredItems() : mapAllRecipe()}
-      {isFiltered ? mapFilteredItems() : mapAllRecipe()}
-      {isFiltered ? mapFilteredItems() : mapAllRecipe()}
-      {isFiltered ? mapFilteredItems() : mapAllRecipe()}
-      {isFiltered ? mapFilteredItems() : mapAllRecipe()}
-        {!noResults && noResultsDiv()}
+      {isFetching && <Fetching />}
+      <div
+        className={`xl:px-24  py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3`}
+        ref={resultsRef}
+      >
+        {isFiltered && mapFilteredItems()}
+        {!isFiltered && mapAllRecipe()}
       </div>
     </Card>
   );
