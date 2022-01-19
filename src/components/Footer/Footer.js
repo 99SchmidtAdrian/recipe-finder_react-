@@ -1,6 +1,7 @@
 import phone from "../../images/phone.svg";
 import facebook from "../../images/facebook-logo.svg";
 import email from "../../images/e-mail.svg";
+import MobileNav from "../Navbar/MobileNav";
 
 const Footer = () => {
   return (
@@ -43,6 +44,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <MobileNav />
     </footer>
   );
 };
