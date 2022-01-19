@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <div
-      className=" bg-gray-600 sticky top-0 hidden md:block z-20 mx-auto rounded-t-xl font-semibold"
+      className=" bg-gray-600 sticky top-0 hidden lg:block z-20 mx-auto rounded-t-xl font-semibold"
       id="scroll"
     >
       <div className="container mx-auto">
@@ -17,26 +17,27 @@ const Navbar = () => {
             className="lg:w-3/5 my-auto lg:left-8 xl:left-10 2xl:left-24 relative"
             id="navbar"
           >
-            <li className="float-left br-1 p-1 smoothscroll">
+            <li className="float-left br-1 p-1 ">
               <a
                 href="https://en.3ok.hu/"
-                className="block text-white  text-center px-3 lg:px-5 py-2 no-underline link"
+                className="block text-white  text-center px-3 lg:px-5 py-2 no-underline "
               >
                 More about veganism
               </a>
             </li>
-            <li className="float-left br-1 p-1 smoothscroll">
+            <li className="float-left br-1 p-1 ">
+              {" "}
               <Link
                 to={{ pathname: "/recipes" }}
-                className="block text-white text-center px-3 lg:px-5 py-2 no-underline link"
+                className="block text-white text-center px-3 lg:px-5 py-2 no-underline "
               >
                 Recipes
               </Link>
             </li>
-            <li className="float-left br-1 p-1 smoothscroll">
+            <li className="float-left br-1 p-1 ">
               <Link
                 to={{ pathname: "/suggest" }}
-                className="block text-white text-center px-3 lg:px-5 py-2 no-underline link"
+                className="block text-white text-center px-3 lg:px-5 py-2 no-underline "
               >
                 Suggest Recipes
               </Link>
