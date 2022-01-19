@@ -1,11 +1,16 @@
 import React from "react";
 import Article from "../Article/Article";
 import Navbar from "../Navbar/Navbar";
-import Card from "../ui/Card/Card";
+import Card from "../ui/Card";
+import pigs from "../../images/pigs.jpg";
+import vegetables from "../../images/vegetables.jpg";
+import milk from "../../images/milk.jpg";
+import earth from "../../images/earth.jpg";
+import pigFriend from "../../images/pig-friend.jpg";
 
 const AboutVeganism = () => {
   return (
-    <Card className="sm:w-11/12 lg:w-10/12 2xl:w-8/12 mx-auto pb-10 border-2 border-gray-600 md:border-none">
+    <Card className="mx-auto pb-10 border-2 border-gray-600 md:border-none lg:w-7/12">
       <Navbar />
       <h1 className="text-3xl text-center text-gray-800 my-5 xl:text-5xl space font-extrabold tracking-wider">
         Why vegan?
@@ -14,7 +19,7 @@ const AboutVeganism = () => {
         <Article
           title="For the animals"
           imgIsLeft={false}
-          imgSrc="https://pixboost.com/api/2/img/Veggies/pigs.jpg/resize?size=543x562&auth=OTcyODUxNQ__"
+          imgSrc={pigs}
         >
           Preventing the exploitation of animals is not the only reason for
           becoming vegan, but for many it remains the key factor in their
@@ -28,7 +33,7 @@ const AboutVeganism = () => {
         <Article
           title="For your health"
           imgIsLeft={true}
-          imgSrc="https://pixboost.com/api/2/img/Veggies/vegetables.jpg/resize?size=543x562&auth=OTcyODUxNQ__"
+          imgSrc={vegetables}
         >
           Well-planned vegan diets follow healthy eating guidelines, and contain
           all the nutrients that our bodies need. Both the{" "}
@@ -62,7 +67,7 @@ const AboutVeganism = () => {
         <Article
           title="For the environment"
           imgIsLeft={false}
-          imgSrc="https://pixboost.com/api/2/img/Veggies/earth.jpg/resize?size=543x562&auth=OTcyODUxNQ__"
+          imgSrc={earth}
         >
           From recycling our household rubbish to cycling to work, we're all
           aware of ways to live a greener life. One of the most effective things
@@ -73,7 +78,7 @@ const AboutVeganism = () => {
         <Article
           title="Why is meat and diary so bad for the environment?"
           imgIsLeft={true}
-          imgSrc="https://pixboost.com/api/2/img/Veggies/milk.jpg/resize?size=400&auth=OTcyODUxNQ__"
+          imgSrc={milk}
         >
           The production of meat and other animal products places a heavy burden
           on the environment - from crops and water required to feed the
@@ -93,7 +98,7 @@ const AboutVeganism = () => {
         <Article
           title="For people"
           imgIsLeft={false}
-          imgSrc="https://pixboost.com/api/2/img/Veggies/pig-friend.jpg/resize?size=543x562&auth=OTcyODUxNQ__"
+          imgSrc={pigFriend}
         >
           Just like veganism is the sustainable option when it comes to looking
           after our planet, plant-based living is also a more sustainable way of
