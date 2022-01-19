@@ -1,19 +1,18 @@
 import "./App.css";
-import { React, Fragment } from "react";
+import { React } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./components/MainPage/MainPage";
 import Results from "./components/Results/Results";
 import Recipes from "./components/Recipes/Recipes";
 import Recipe from "./components/Recipes/Recipe";
-import './styles/output.css';
-import SuggestRecipe from "./components/Recipes/SuggestRecipe";
-import ScrollToTop from "./components/ScrollToTop";
+import "./styles/output.css";
+import SuggestRecipe from "./components/Suggest/SuggestRecipe";
+import ScrollToTop from "./components/Functional/ScrollToTop";
 
 function App() {
   return (
-    <Fragment>
-      <Router>
-        <ScrollToTop>
+    <Router>
+      <ScrollToTop>
         <Switch>
           <Route path="/" exact component={MainPage} />
           <Route path="/recipes" exact component={Recipes} />
@@ -21,9 +20,8 @@ function App() {
           <Route path="/search/:keywords" component={Results} />
           <Route path="/suggest" exact component={SuggestRecipe} />
         </Switch>
-        </ScrollToTop>
-      </Router>
-    </Fragment>
+      </ScrollToTop>
+    </Router>
   );
 }
 
