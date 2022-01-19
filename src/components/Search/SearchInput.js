@@ -9,7 +9,7 @@ const SearchInput = (props) => {
     if (props.refFor.current.value.length > 0) {
       searchWords.push("search/" + props.refFor.current.value);
     } else {
-        console.log('type something brah');
+      console.log("type something");
     }
   };
 
@@ -24,7 +24,10 @@ const SearchInput = (props) => {
         type="text"
         placeholder={props.placeholder}
         autoComplete="off"
-        className={props.inputClass + " bg-none w-5/6 sm:w-10/12 text-center outline-none"}
+        className={
+          props.inputClass +
+          " bg-none w-5/6 sm:w-10/12 text-center outline-none"
+        }
         ref={props.refFor}
       />
       <button

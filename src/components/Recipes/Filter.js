@@ -9,9 +9,9 @@ const Filter = (props) => {
   const [filterIsOpened, setFilterIsOpened] = useState(false);
 
   return (
-    <div className="h-[50px] ">
+    <div className="h-[50px]">
       <button
-        className="absolute pt-[10px] ml-3 z-10 flex flex-row hover:-rotate-3 transition-all duration-1000"
+        className="absolute pt-[10px] ml-3 z-10 flex flex-row transition-all duration-1000"
         onClick={() => {
           if (filterIsOpened === false) {
             setFilterIsOpened(true);
@@ -21,30 +21,21 @@ const Filter = (props) => {
         }}
       >
         <img src={filterIcon} alt="Filter icon" className="h-8 w-8" />
-        <span className={`${filterIsOpened ? "opacity-0" : "opacity-100"} p-1`}>
+        <span
+          className={`${
+            filterIsOpened ? "opacity-0" : "opacity-100 delay-700"
+          } p-1 transition-all duration-500 `}
+        >
           Filter
         </span>
       </button>
       <div
         className={`${
           filterIsOpened ? "w-full border opacity-100" : "w-0 opacity-0"
-        } transition-all duration-1000  overflow-hidden bg-white rounded-xl border-gray-400 shadow-2xl pt-[10px] w-full text-right`}
+        } transition-all duration-1000  overflow-hidden bg-white rounded-xl border-gray-400 shadow-2xl pt-[10px] w-full text-right h-[110px] md:h-[50px]`}
       >
-        <button
-          onClick={() => {
-            props.onClear();
-            setVeganIsChecked(false);
-            setKetoIsChecked(false);
-            setGlutenFreeIsChecked(false);
-          }}
-          className={`${
-            filterIsOpened ? "right-3 " : "-left-10"
-          }  py-1 px-2 text-red-600 font-bold border-2 border-red-600 rounded-xl -mt-1 mr-1 -mb-10`}
-        >
-          Clear
-        </button>
-        <form className="text-center text-lg -mt-6 pb-2">
-          <ul className="flex flex-row justify-evenly">
+        <form className="text-center text-lg pb-2">
+          <ul className="flex flex-col md:flex-row justify-evenly">
             <FilterItem
               isChecked={veganIsChecked}
               isOpened={filterIsOpened}
@@ -89,6 +80,20 @@ const Filter = (props) => {
             </FilterItem>
           </ul>
         </form>
+        <button
+          onClick={() => {
+            props.onClear();
+            setVeganIsChecked(false);
+            setKetoIsChecked(false);
+            setGlutenFreeIsChecked(false);
+          }}
+          className={`${
+            filterIsOpened ? "" : ""
+          } py-1 px-2 text-red-600 font-bold border-2 border-red-600 rounded-xl top-0 mr-1 transform translate-y-[-90px] relative h-4/5 md:h-auto md:translate-y-[-40px]`}
+        >
+          Clear
+        </button>
+
       </div>
     </div>
   );

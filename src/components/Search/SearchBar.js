@@ -15,7 +15,10 @@ const SearchBar = () => {
       />
       <div id="scroll-down" className="">
         <a href="#scroll">
-          <div className="text-gray-700 bg-gray-200 font-bold mx-auto text-center mt-8 p-3 border-2 rounded-2xl w-3/4 sm:w-5/12 md:w-4/12 xl:w-3/12 2xl:w-2/12 shadow-2xl border-gray-500 transform hover:scale-110 duration-500">
+          <div
+            className="text-gray-700 bg-gray-200 font-bold mx-auto text-center mt-8 p-3 border-2 rounded-2xl w-3/4 
+          sm:w-5/12 md:w-4/12 xl:w-3/12 2xl:w-2/12 shadow-2xl border-gray-500 transform hover:scale-110 duration-500"
+          >
             Or you can just scroll down
           </div>
         </a>
