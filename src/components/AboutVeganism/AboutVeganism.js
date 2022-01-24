@@ -10,7 +10,7 @@ import pigFriend from "../../images/pig-friend.jpg";
 
 const AboutVeganism = () => {
   return (
-    <Card className="mx-auto pb-10 border-2 border-gray-600 md:border-none lg:w-7/12">
+    <Card className="mx-auto pb-10 border-2 border-gray-600 md:border-none lg:w-10/12 2xl:mb-[100px] 2xl:w-8/12">
       <Navbar />
       <h1 className="text-3xl text-center text-gray-800 my-5 xl:text-5xl space font-extrabold tracking-wider">
         Why vegan?

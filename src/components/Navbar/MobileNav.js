@@ -17,7 +17,7 @@ const MobileNav = () => {
   const mobilNavButton = () => {
     return (
       <div
-        className="z-20 xl:hidden fixed bottom-3 right-3 flex justify-center items-center rounded-full w-[50px] h-[50px] border border-gray-700 bg-gray-200 transition-all duration-500 overflow-hidden"
+        className="z-20 md:hidden fixed bottom-3 right-3 flex justify-center items-center rounded-full w-[50px] h-[50px] border border-gray-700 bg-gray-200 transition-all duration-500 overflow-hidden"
         onClick={openModalHandler}
       >
         <div
@@ -37,20 +37,27 @@ const MobileNav = () => {
     return (
       <ul
         className={`${
-          mobileNavIsOpened ? "h-[150px] " : "h-[0px]"
-        } w-full fixed top-0 left-0 bg-gray-800 z-10 rounded-b-xl transition-all duration-500 overflow-hidden text-center flex flex-col justify-evenly`}
+          mobileNavIsOpened ? "h-[180px] " : "h-[0px]"
+        } w-full fixed bottom-0 left-0 bg-gray-200 z-10 rounded-t-xl transition-all duration-500 overflow-hidden text-center flex flex-col justify-evenly border-2 border-b-0 border-gray-700`}
         onClick={openModalHandler}
       >
         <Link to={{ pathname: "/" }}>
-          <li className="text-white  px-3 lg:px-5 py-2 no-underline">Home</li>
+          <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
+            Home
+          </li>
         </Link>
         <Link to={{ pathname: "/recipes" }}>
-          <li className="text-white  px-3 lg:px-5 py-2 no-underline">
+          <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
             Recipes
           </li>
         </Link>
-        <a href="https://en.3ok.hu/">
-          <li className="text-white  px-3 lg:px-5 py-2 no-underline">
+        <Link to={{ pathname: "/suggest" }}>
+          <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
+            Suggest Recipes
+          </li>
+        </Link>
+        <a href="https://en.3ok.hu/" target="_blank">
+          <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
             More about veganism
           </li>
         </a>

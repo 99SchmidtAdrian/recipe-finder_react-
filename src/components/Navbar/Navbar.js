@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <div
-      className=" bg-gray-600 sticky top-0 hidden lg:block z-20 mx-auto rounded-t-xl font-semibold"
+      className=" bg-gray-600 sticky top-0 hidden md:block z-20 mx-auto rounded-t-xl font-semibold"
       id="scroll"
     >
       <div className="container mx-auto">
