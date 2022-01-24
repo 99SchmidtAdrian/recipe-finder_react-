@@ -2,26 +2,30 @@ import remove from "../../images/remove.svg";
 
 const DietInput = (props) => {
   return (
-    <li className="relative border-2 mb-2 border-gray-300 rounded-lg text-left bg-white p-[1px]">
+    <li className="mb-2 text-left p-[1px] md:w-10/12">
       <input
-        className="text-center placeholder-gray-600 text-xl w-10/12 outline-none"
+        className="pl-2  placeholder-gray-600 text-xl w-10/12 outline-none  border-2 border-gray-300 rounded-lg bg-white"
         placeholder="Diet (e.g. vegan)"
-        name={props.name}
+        name='diet'
         value={props.value}
         onChange={props.onChange}
       />
       <button
+        type="button"
         onClick={(e) => {
-          e.preventDefault();
-          const values = [...props.dietFields];
-          values.splice(props.index, 1);
-          props.setDietFields(values);
+          if (props.dietFields.length !== 1) {
+            const values = [...props.dietFields];
+            values.splice(props.index, 1);
+            props.setDietFields(values)            
+          }else{
+            console.log(e.name);
+          }
         }}
       >
         <img
           alt="delete field"
           src={remove}
-          className="w-2/12 absolute -top-1 right-0 p-1"
+          className="h-8 relative top-2 p-1 w-8"
         />
       </button>
     </li>
