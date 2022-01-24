@@ -15,11 +15,11 @@ const SideNav = (props) => {
       }
     >
       <img src={logo} className="h-64" alt="vegan-friendly logo" />
-      <Card className="h-[300px] w-10/12">
+      <Card className="h-[300px] w-10/12 2xl:h-[350px]">
         <ul className="w-full h-full flex flex-col justify-evenly text-center font-medium items-center">
           <Line className="w-10/12" />
           <Link to={{ pathname: "/" }}>
-            <li className="hover:text-xl hover:underline transition-all duration-300 leading-7">
+            <li className="hover:text-lg hover:underline transition-all duration-300 leading-7">
               Home
             </li>
           </Link>
@@ -27,8 +27,8 @@ const SideNav = (props) => {
           <Link to={{ pathname: "/recipes" }}>
             <li
               className={`${
-                props.page === "recipes" && "font-bold text-xl underline "
-              }  hover:text-xl hover:underline transition-all duration-300 leading-7`}
+                props.page === "recipes" && "font-bold text-lg underline "
+              }  hover:text-lg hover:underline transition-all duration-300 leading-7`}
               id="Recipes"
             >
               Recipes
@@ -38,15 +38,15 @@ const SideNav = (props) => {
           <Link to={{ pathname: "/suggest" }}>
             <li
               className={`${
-                props.page === "suggest" && "font-bold text-xl underline"
-              } hover:text-xl hover:underline transition-all duration-300 leading-7`}
+                props.page === "suggest" && "font-bold text-lg underline"
+              } hover:text-lg hover:underline transition-all duration-300 leading-7`}
             >
               Suggest Recipe
             </li>
           </Link>
           <Line className="w-10/12" />
           <li>
-            <SearchInput refFor={navSearch} className="p-1" />
+            <SearchInput refFor={navSearch} className="p-1 xl:w-10/12 2xl:w-full" />
           </li>
         </ul>
       </Card>

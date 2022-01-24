@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <div
-      className=" bg-gray-600 sticky top-0 hidden md:block z-20 mx-auto rounded-t-xl font-semibold"
+      className=" bg-gray-600 sticky top-0 hidden xl:block z-20 mx-auto rounded-t-xl font-semibold"
       id="scroll"
     >
       <div className="container mx-auto">
@@ -20,6 +20,8 @@ const Navbar = () => {
             <li className="float-left br-1 p-1 ">
               <a
                 href="https://en.3ok.hu/"
+                target="_blank"
+                rel="noreferrer"
                 className="block text-white  text-center px-3 lg:px-5 py-2 no-underline "
               >
                 More about veganism

@@ -3,11 +3,11 @@ import Card from "../ui/Card";
 
 const RecipeItem = (props) => {
   return (
-    <Link to={{ pathname: `/recipe/${props.name}` }}>
+    <Link to={{ pathname: `/recipe/${props.name}` }} className={props.linkClass}>
       <Card
         className={
-          props.className +
-          " w-[200px] lg:w-[180px] 2xl:w-[200px] border-gray-400 shadow-xl my-6 hover:translate-y-[-5px] transition-all duration-500 mx-auto"
+          "w-[200px] lg:w-[180px] 2xl:w-[200px] border-gray-400 shadow-xl my-6 hover:translate-y-[-5px] transition-all duration-500 mx-auto " +
+          props.className
         }
       >
         <img

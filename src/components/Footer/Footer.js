@@ -5,7 +5,7 @@ import MobileNav from "../Navbar/MobileNav";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-sm absolute w-full h-[100px] mt-[-20px] 2xl:mt-[-100px]">
+    <footer className="bg-gray-900 text-sm absolute w-full h-[100px] 2xl:mt-[-100px]">
       <div className="felx flex-col text-gray-200 font-light text-center">
         <div className="flex flex-col my-auto py-5">
           <div className="flex flex-row mx-auto">

@@ -1,10 +1,11 @@
 import ReactDOM from "react-dom";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-
+import SearchInput from "../Search/SearchInput";
 const MobileNav = () => {
   const portal = document.getElementById("overlays");
   const [mobileNavIsOpened, setMobileNavIsOpened] = useState(false);
+  const mobileSearch = useRef();
 
   const openModalHandler = () => {
     if (mobileNavIsOpened === true) {
@@ -17,7 +18,7 @@ const MobileNav = () => {
   const mobilNavButton = () => {
     return (
       <div
-        className="z-20 md:hidden fixed bottom-3 right-3 flex justify-center items-center rounded-full w-[50px] h-[50px] border border-gray-700 bg-gray-200 transition-all duration-500 overflow-hidden"
+        className="z-20 xl:hidden fixed bottom-3 right-3 flex justify-center items-center rounded-full w-[50px] h-[50px] border border-gray-700 bg-gray-200 transition-all duration-500 overflow-hidden"
         onClick={openModalHandler}
       >
         <div
@@ -37,10 +38,14 @@ const MobileNav = () => {
     return (
       <ul
         className={`${
-          mobileNavIsOpened ? "h-[180px] " : "h-[0px]"
+          mobileNavIsOpened ? "h-[250px] " : "h-[0px]"
         } w-full fixed bottom-0 left-0 bg-gray-200 z-10 rounded-t-xl transition-all duration-500 overflow-hidden text-center flex flex-col justify-evenly border-2 border-b-0 border-gray-700`}
-        onClick={openModalHandler}
       >
+        <SearchInput
+          refFor={mobileSearch}
+          className="h-8 mx-auto py-1 mt-2 w-64"
+          placeholder="Serch a recipe"
+        />
         <Link to={{ pathname: "/" }}>
           <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
             Home
@@ -56,7 +61,7 @@ const MobileNav = () => {
             Suggest Recipes
           </li>
         </Link>
-        <a href="https://en.3ok.hu/" target="_blank">
+        <a href="https://en.3ok.hu/" target="_blank" rel="noreferrer">
           <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
             More about veganism
           </li>
