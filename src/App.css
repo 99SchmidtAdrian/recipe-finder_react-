@@ -2,25 +2,3 @@
     background-image: url("./images/background.jpg");
   }
 
-.ingredients {
-  counter-reset:step;
-}
-
-.ingredients li{
-  margin-bottom:15px;
-  padding-left: 10px;
-}
-
-.ingredients li::before {
-  counter-increment: step;
-  content: counter(step) ". ";
-  font-weight:700;
-  border: 2px solid black;
-  border-radius:100%;
-  padding:1px 4px 1px 6px;
-  margin-right:10px;
-  top: -5px;
-  display: inline-block;
-  transform: translate(-40px, -20px);
-}
-
