@@ -2,14 +2,18 @@ import searchIcon from "../../images/search-24px.svg";
 import { useHistory } from "react-router-dom";
 
 const SearchInput = (props) => {
-  const searchWords = useHistory();
+  const history = useHistory();
 
   const searchHandler = (event) => {
     event.preventDefault();
     if (props.refFor.current.value.length > 0) {
-      searchWords.push("search/" + props.refFor.current.value);
+      if (!history.location.pathname.includes("/search")) {
+        history.push("/search/" + props.refFor.current.value);
+      }else{
+        history.push(props.refFor.current.value);
+      }
     } else {
-      console.log("type something");
+      console.log();
     }
   };
 
