@@ -18,7 +18,7 @@ const MobileNav = () => {
   const mobilNavButton = () => {
     return (
       <div
-        className="z-20 xl:hidden fixed bottom-3 right-3 flex justify-center items-center rounded-full w-[50px] h-[50px] border border-gray-700 bg-gray-200 transition-all duration-500 overflow-hidden"
+        className="z-30 xl:hidden fixed bottom-3 right-3 flex justify-center items-center rounded-full w-[50px] h-[50px] border border-gray-700 bg-gray-200 transition-all duration-500 overflow-hidden"
         onClick={openModalHandler}
       >
         <div
@@ -39,7 +39,7 @@ const MobileNav = () => {
       <ul
         className={`${
           mobileNavIsOpened ? "h-[250px] " : "h-[0px]"
-        } w-full fixed bottom-0 left-0 bg-gray-200 z-10 rounded-t-xl transition-all duration-500 overflow-hidden text-center flex flex-col justify-evenly border-2 border-b-0 border-gray-700`}
+        } w-full fixed bottom-0 left-0 bg-gray-200 z-20 rounded-t-xl transition-all duration-500 overflow-hidden text-center flex flex-col justify-evenly border-2 border-b-0 border-gray-700`}
       >
         <SearchInput
           refFor={mobileSearch}

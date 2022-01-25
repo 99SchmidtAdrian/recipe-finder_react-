@@ -60,7 +60,7 @@ const SuggestRecipe = () => {
 
   return (
     <RecipesPage page="suggest">
-      <Card className="px-3 py-5 xl:mb-10">
+      <Card className="px-3 py-5 xl:mb-10 2xl:mb-40">
         <h1 className="text-center text-3xl font-bold">Suggest a recipe</h1>
         <div className="text-center text-lg font-semibold mt-1">
           Fill the information below
@@ -83,7 +83,7 @@ const SuggestRecipe = () => {
               selectedImage={selectedImage}
               setSelectedImage={setSelectedImage}
             />
-            <div className="flex flex-col md:justify-center md:mx-auto lg:w-7/12 text-2xl font-semibold sm:w-10/12 mt-10 md:mt-0 md:ml-6">
+            <div className="flex flex-col lg:w-7/12 text-2xl font-semibold sm:w-10/12 mt-10 md:mt-0 md:ml-6 lg:ml-12">
                 <h6 className="font-bold mb-2">Diets</h6>
                 <ul className="mr-2 flex flex-col capitalize h-full text-lg">
                   {dietFields.map((dietField, index) => (

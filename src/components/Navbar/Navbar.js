@@ -28,7 +28,6 @@ const Navbar = () => {
               </a>
             </li>
             <li className="float-left br-1 p-1 ">
-              {" "}
               <Link
                 to={{ pathname: "/recipes" }}
                 className="block text-white text-center px-3 lg:px-5 py-2 no-underline "

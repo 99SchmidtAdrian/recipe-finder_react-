@@ -5,7 +5,7 @@ import RecipesPage from "../ui/RecipesPage";
 
 const Recipes = () => {
   return (
-    <RecipesPage >
+    <RecipesPage page="recipes">
       <Suggestion />
       <AllRecipes />
     </RecipesPage>
