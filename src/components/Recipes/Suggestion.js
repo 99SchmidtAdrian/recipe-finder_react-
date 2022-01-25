@@ -10,11 +10,11 @@ const Suggestion = (props) => {
   const fetchRecipesHandler = useCallback(async () => {
     setIsFetching(true);
     const response = await fetch(
-      "https://api.jsonbin.io/v3/c/61cb68ffea3bf56821393a5f/",
+      "https://api.jsonbin.io/v3/c/61ef3ba7bd6e744997eb2305/",
       {
         headers: {
           "X-Master-Key":
-            "$2b$10$q3QXAUseWI5cok7RdeBLqO4x0QrLWpxQvsy.Ew4DAd4kfc0JLV3mm"
+          "$2b$10$kA9wXBWcQo0NvUAsmwlVt..O.jGDFC8ewrSQvPpfwqvFqRW7bIj9C"
         }
       }
     );
@@ -56,11 +56,11 @@ const Suggestion = (props) => {
         </h1>
       </div>
       {isFetching && <Fetching />}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
+      <div className="flex flex-row flex-wrap justify-evenly">
         {data.map(
           (recipe) =>
             recipe.isWeeklySuggestionOn !== undefined && (
-              <RecipeItem key={recipe.id} name={recipe.name} src={recipe.src} />
+              <RecipeItem key={recipe.id} name={recipe.name} src={recipe.src} linkClass="mx-2" />
             )
         )}
       </div>
