@@ -7,6 +7,8 @@ import vegetables from "../../images/vegetables.jpg";
 import milk from "../../images/milk.jpg";
 import earth from "../../images/earth.jpg";
 import pigFriend from "../../images/pig-friend.jpg";
+import veganBowl from "../../images/vegan-bowl.jpg";
+import { Link } from "react-router-dom";
 
 const AboutVeganism = () => {
   return (
@@ -17,10 +19,25 @@ const AboutVeganism = () => {
       </h1>
       <div className="container text-black mx-auto overflow-hidden">
         <Article
-          title="For the animals"
-          imgIsLeft={false}
-          imgSrc={pigs}
+          title="Check out our vegan recipes!"
+          imgIsLeft={true}
+          imgSrc={veganBowl}
         >
+          Whether you're trying to eat less meat, pack your meals with the
+          healthiest vegetables, or go completely meat- and dairy-free, the idea
+          of making vegan recipes can be seriously daunting. Without meat,
+          dairy, and other animal products, you're often left with a plate full
+          of plants — but most home cooks know what a wonderful opportunity that
+          can be.
+          <Link
+            to={{ pathname: "/recipes" }}
+            className="block font-bold mx-auto border border-green-500 w-[fit-content] rounded text-lg py-1 px-3 bg-green-200 mt-5 transform duration-200 hover:-translate-y-1"
+          >
+            Check the recipes!
+          </Link>
+        </Article>
+
+        <Article title="For the animals" imgIsLeft={false} imgSrc={pigs}>
           Preventing the exploitation of animals is not the only reason for
           becoming vegan, but for many it remains the key factor in their
           decision to go vegan and stay vegan. Having emotional attachments with
@@ -30,11 +47,7 @@ const AboutVeganism = () => {
           a stand against animal cruelty and animal exploitation everywhere.
         </Article>
 
-        <Article
-          title="For your health"
-          imgIsLeft={true}
-          imgSrc={vegetables}
-        >
+        <Article title="For your health" imgIsLeft={true} imgSrc={vegetables}>
           Well-planned vegan diets follow healthy eating guidelines, and contain
           all the nutrients that our bodies need. Both the{" "}
           <a
@@ -64,11 +77,7 @@ const AboutVeganism = () => {
           vegetables, which are packed full of beneficial fibre, vitamins and
           minerals.
         </Article>
-        <Article
-          title="For the environment"
-          imgIsLeft={false}
-          imgSrc={earth}
-        >
+        <Article title="For the environment" imgIsLeft={false} imgSrc={earth}>
           From recycling our household rubbish to cycling to work, we're all
           aware of ways to live a greener life. One of the most effective things
           an individual can do to lower their carbon footprint is to avoid all
@@ -95,11 +104,7 @@ const AboutVeganism = () => {
           reduce our impact on the environment.
         </Article>
 
-        <Article
-          title="For people"
-          imgIsLeft={false}
-          imgSrc={pigFriend}
-        >
+        <Article title="For people" imgIsLeft={false} imgSrc={pigFriend}>
           Just like veganism is the sustainable option when it comes to looking
           after our planet, plant-based living is also a more sustainable way of
           feeding the human family. A plant-based diet requires only one third
