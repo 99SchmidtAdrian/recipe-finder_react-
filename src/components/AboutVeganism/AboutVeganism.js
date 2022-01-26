@@ -31,7 +31,7 @@ const AboutVeganism = () => {
           can be.
           <Link
             to={{ pathname: "/recipes" }}
-            className="block font-bold mx-auto border border-green-500 w-[fit-content] rounded text-lg py-1 px-3 bg-green-200 mt-5 transform duration-200 hover:-translate-y-1"
+            className="block font-bold mx-auto border-2 border-green-500 w-[fit-content] rounded text-lg py-1 px-3 bg-green-200 mt-5 transform duration-200 hover:-translate-y-1"
           >
             Check the recipes!
           </Link>
