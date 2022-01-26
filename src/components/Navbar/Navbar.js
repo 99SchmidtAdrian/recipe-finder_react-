@@ -18,16 +18,6 @@ const Navbar = () => {
             id="navbar"
           >
             <li className="float-left br-1 p-1 ">
-              <a
-                href="https://en.3ok.hu/"
-                target="_blank"
-                rel="noreferrer"
-                className="block text-white  text-center px-3 lg:px-5 py-2 no-underline "
-              >
-                More about veganism
-              </a>
-            </li>
-            <li className="float-left br-1 p-1 ">
               <Link
                 to={{ pathname: "/recipes" }}
                 className="block text-white text-center px-3 lg:px-5 py-2 no-underline "
@@ -42,6 +32,16 @@ const Navbar = () => {
               >
                 Suggest Recipes
               </Link>
+            </li>
+            <li className="float-left br-1 p-1 ">
+              <a
+                href="https://en.3ok.hu/"
+                target="_blank"
+                rel="noreferrer"
+                className="block text-white  text-center px-3 lg:px-5 py-2 no-underline "
+              >
+                More about veganism
+              </a>
             </li>
           </div>
           <SearchInput
