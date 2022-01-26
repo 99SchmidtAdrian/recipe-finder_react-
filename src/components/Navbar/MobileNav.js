@@ -3,7 +3,7 @@ import { Fragment, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import SearchInput from "../Search/SearchInput";
 const MobileNav = () => {
-  const portal = document.getElementById("overlays");
+  const portal = document.getElementById("mobile-nav");
   const [mobileNavIsOpened, setMobileNavIsOpened] = useState(false);
   const mobileSearch = useRef();
 
