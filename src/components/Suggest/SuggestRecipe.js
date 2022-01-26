@@ -7,6 +7,7 @@ import IngredientInput from "./IngredientInput";
 import DietInput from "./DietInput";
 import DirectionInput from "./DirectionInput";
 import ImageInput from "./ImageInput";
+import Alert from "../ui/Alert";
 
 const SuggestRecipe = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -17,6 +18,7 @@ const SuggestRecipe = () => {
     { amount: "", unit: "", ingredient: "" }
   ]);
   const [directionFields, setDirectionFields] = useState([{ direction: "" }]);
+  const [alerts, setAlerts] = useState([]);
 
   useEffect(() => {
     if (selectedImage) {
@@ -46,16 +48,33 @@ const SuggestRecipe = () => {
   };
 
   const handleSubmit = () => {
-    console.log(
-      "Name: ",
-      nameField,
-      "\nDiet Fields",
-      dietFields,
-      "\nIngredients: ",
-      ingredientFields,
-      "\nDirections: ",
-      directionFields
-    );
+    if (!imageUrl || !selectedImage) {
+      setAlerts([
+        ...alerts,
+        { message: "You have to upload an image.", type: "warning" }
+      ]);
+    } else if (ingredientFields.length < 3) {
+      setAlerts([
+        ...alerts,
+        {
+          message: "The recipe must contain 3 ingredients at least",
+          type: "warning"
+        }
+      ]);
+    } else if (directionFields.length < 3) {
+      setAlerts([
+        ...alerts,
+        {
+          message: "The recipe must have 3 steps at least",
+          type: "warning"
+        }
+      ]);
+    }else {
+
+    setAlerts([
+      ...alerts,
+      { message: "Your recipe has been sent successfully."}
+    ]);}
   };
 
   return (
@@ -84,29 +103,29 @@ const SuggestRecipe = () => {
               setSelectedImage={setSelectedImage}
             />
             <div className="flex flex-col lg:w-7/12 text-2xl font-semibold sm:w-10/12 mt-10 md:mt-0 md:ml-6 lg:ml-12">
-                <h6 className="font-bold mb-2">Diets</h6>
-                <ul className="mr-2 flex flex-col capitalize h-full text-lg">
-                  {dietFields.map((dietField, index) => (
-                    <div key={index}>
-                      <DietInput
-                        index={index}
-                        value={dietField.diet}
-                        onChange={(e) => dietChangeInputValueHandler(index, e)}
-                        setDietFields={setDietFields}
-                        dietFields={dietFields}
-                      />
-                    </div>
-                  ))}
-                  <button
-                    type="button"
-                    className="bg-gray-300 border border-gray-700 mt-2 w-[fit-content] px-3 ml-1 rounded-xl font-medium"
-                    onClick={() => {
-                      setDietFields([...dietFields, { diet: "" }]);
-                    }}
-                  >
-                    +
-                  </button>
-                </ul>
+              <h6 className="font-bold mb-2">Diets</h6>
+              <ul className="mr-2 flex flex-col capitalize h-full text-lg">
+                {dietFields.map((dietField, index) => (
+                  <div key={index}>
+                    <DietInput
+                      index={index}
+                      value={dietField.diet}
+                      onChange={(e) => dietChangeInputValueHandler(index, e)}
+                      setDietFields={setDietFields}
+                      dietFields={dietFields}
+                    />
+                  </div>
+                ))}
+                <button
+                  type="button"
+                  className="bg-gray-300 border border-gray-700 mt-2 w-[fit-content] px-3 ml-1 rounded-xl font-medium"
+                  onClick={() => {
+                    setDietFields([...dietFields, { diet: "" }]);
+                  }}
+                >
+                  +
+                </button>
+              </ul>
               <div className="mt-10">
                 <h6 className="font-bold mb-2">Ingredients</h6>
                 <ul className="flex flex-col text-lg h-full">
@@ -180,6 +199,20 @@ const SuggestRecipe = () => {
           </div>
         </form>
       </Card>
+      <div className="fixed bottom-5 w-[fit-content] mx-auto left-0 right-0 z-50 lg:w-[370px] lg:right-10 lg:left-auto">
+        {alerts.map((alert, index) => (
+          <div key={index}>
+            <Alert
+              index={index}
+              value={alert.message}
+              type={alert.type}
+              fields={alerts}
+              setFields={setAlerts}
+              isActive={alert.isActive}
+            />
+          </div>
+        ))}
+      </div>
     </RecipesPage>
   );
 };

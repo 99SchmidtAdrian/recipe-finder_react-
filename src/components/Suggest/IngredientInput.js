@@ -7,7 +7,7 @@ const IngredientInput = (props) => {
       <li className="flex flex-row md:w-10/12">
         <div className="w-10/12">
         <input
-          className="border-2 border-gray-300 text-center rounded-lg placeholder-gray-600 h-7 text-sm appearance-none w-2/12 md:w-3/12 lg:text-[10px]"
+          className="border-2 border-gray-300 text-center rounded-lg placeholder-gray-600 h-7 text-sm appearance-none w-2/12 md:w-3/12 lg:text-[10px] xl:text-md"
           placeholder="Amount"
           type="number"
           name="amount"
