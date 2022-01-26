@@ -9,7 +9,7 @@ const Filter = (props) => {
   const [filterIsOpened, setFilterIsOpened] = useState(false);
 
   return (
-    <div className="h-[50px]">
+    <div className="h-[fit-content]">
       <button
         className="absolute pt-[10px] ml-3 z-10 flex flex-row transition-all duration-1000"
         onClick={() => {
@@ -31,8 +31,8 @@ const Filter = (props) => {
       </button>
       <div
         className={`${
-          filterIsOpened ? "w-full border opacity-100" : "w-0 opacity-0"
-        } transition-all duration-1000  overflow-hidden bg-white rounded-xl border-gray-400 shadow-2xl pt-[10px] w-full text-right h-[110px] md:h-[50px]`}
+          filterIsOpened ? "border opacity-100 h-[100px] md:w-full" : "opacity-0 h-0 md:w-0"
+        } md:h-[50px] transition-all duration-1000  overflow-hidden bg-white rounded-xl border-gray-400 shadow-2xl pt-[10px] text-right`}
       >
         <form className="text-center text-lg pb-2">
           <ul className="flex flex-col md:flex-row justify-evenly">

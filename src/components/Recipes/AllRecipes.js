@@ -1,6 +1,6 @@
 import RecipeItem from "./RecipeItem";
 import Card from "../ui/Card";
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Filter from "./Filter";
 import Fetching from "../ui/Fetching";
 
@@ -8,8 +8,8 @@ const AllRecipes = () => {
   const [isFiltered, setIsFiltered] = useState(false);
   const [filters, setFilters] = useState({ filter: [] });
   const [isFetching, setIsFetching] = useState(false);
-  const resultsRef = useRef();
   const [data, setData] = useState([]);
+  const [results, setResults] = useState([]);
 
   const fetchRecipesHandler = useCallback(async () => {
     setIsFetching(true);
@@ -57,19 +57,29 @@ const AllRecipes = () => {
       />
     ));
   };
+useEffect(() => {
+  setResults([]);
+  for (let i = 0; i < data.length; i++) {
+    if (filters.filter.every((v) => data[i].diet.includes(v))) {
+      setResults((results) => [...results, { id: data[i].id, name: data[i].name, src: data[i].src }]);
+    }
+  }
+
+}, [filters.filter, data])
 
   const mapFilteredItems = () => {
-    return data.map(
-      (recipe) =>
-        filters.filter.every((v) => recipe.diet.includes(v)) && (
-          <RecipeItem
-            key={recipe.id}
-            name={recipe.name}
-            src={recipe.src}
-            className="mx-2"
-          />
-        )
-    );
+    if (results.length !== 0) {
+      return results.map((recipe) => (
+        <RecipeItem
+          key={recipe.id}
+          name={recipe.name}
+          src={recipe.src}
+          className="mx-2"
+        />
+      ));      
+    }else{
+      return <div className="text-2xl ">No result</div>
+    }
   };
 
   return (
@@ -80,10 +90,7 @@ const AllRecipes = () => {
         filters={filters}
       />
       {isFetching && <Fetching />}
-      <div
-        className={`xl:px-24 py-10 flex flex-row flex-wrap justify-evenly`}
-        ref={resultsRef}
-      >
+      <div className={`xl:px-24 py-10 flex flex-row flex-wrap justify-evenly`}>
         {isFiltered && mapFilteredItems()}
         {!isFiltered && mapAllRecipe()}
       </div>
