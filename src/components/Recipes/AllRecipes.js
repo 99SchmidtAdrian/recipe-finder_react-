@@ -57,15 +57,17 @@ const AllRecipes = () => {
       />
     ));
   };
-useEffect(() => {
-  setResults([]);
-  for (let i = 0; i < data.length; i++) {
-    if (filters.filter.every((v) => data[i].diet.includes(v))) {
-      setResults((results) => [...results, { id: data[i].id, name: data[i].name, src: data[i].src }]);
+  useEffect(() => {
+    setResults([]);
+    for (let i = 0; i < data.length; i++) {
+      if (filters.filter.every((v) => data[i].diet.includes(v))) {
+        setResults((results) => [
+          ...results,
+          { id: data[i].id, name: data[i].name, src: data[i].src }
+        ]);
+      }
     }
-  }
-
-}, [filters.filter, data])
+  }, [filters.filter, data]);
 
   const mapFilteredItems = () => {
     if (results.length !== 0) {
@@ -76,9 +78,9 @@ useEffect(() => {
           src={recipe.src}
           className="mx-2"
         />
-      ));      
-    }else{
-      return <div className="text-2xl ">No result</div>
+      ));
+    } else {
+      return <div className="text-2xl ">No result</div>;
     }
   };
 
