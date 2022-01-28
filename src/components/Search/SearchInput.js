@@ -1,10 +1,12 @@
-import searchIcon from "../../images/search-24px.svg";
 import { useHistory } from "react-router-dom";
 import { useState, Fragment } from "react";
+import ReactDOM from "react-dom";
 import Alert from "../ui/Alert";
+import searchIcon from "../../images/search-24px.svg";
 
 const SearchInput = (props) => {
   const history = useHistory();
+  const portal = document.getElementById("alerts");
   const [alerts, setAlerts] = useState([]);
 
   const searchHandler = (event) => {
@@ -16,7 +18,10 @@ const SearchInput = (props) => {
         history.push(props.refFor.current.value);
       }
     } else {
-      setAlerts([...alerts, { message: "Search field is empty.", type:'warning'}]);
+      setAlerts([
+        ...alerts,
+        { message: "Search field is empty.", type: "warning" }
+      ]);
     }
   };
 
@@ -24,7 +29,7 @@ const SearchInput = (props) => {
     <Fragment>
       <form
         className={
-          "text-center bg-white mx-auto rounded-lg shadow-lg relative " +
+          "text-center bg-gray-200 mx-auto rounded-lg relative " +
           props.className
         }
       >
@@ -34,7 +39,7 @@ const SearchInput = (props) => {
           autoComplete="off"
           className={
             props.inputClass +
-            " bg-none w-5/6 sm:w-10/12 text-center outline-none"
+            " bg-gray-200 w-5/6 sm:w-10/12 text-center outline-none"
           }
           ref={props.refFor}
         />
@@ -46,13 +51,21 @@ const SearchInput = (props) => {
           <img src={searchIcon} alt="search button" className="" />
         </button>
       </form>
-      <div className="fixed bottom-5 w-[fit-content] mx-auto left-0 right-0 z-50 lg:w-[370px] lg:right-10 lg:left-auto">
-        {alerts.map((alert, index) => (
-          <div key={index}>
-            <Alert index={index} value={alert.message} type={alert.type} fields={alerts} setFields={setAlerts} />
-          </div>
-        ))}
-      </div>
+      {ReactDOM.createPortal(
+        <div className="fixed bottom-5 w-[320px] mx-auto left-0 right-0 z-50 lg:w-[370px] lg:right-10 lg:left-auto">
+          {alerts.map((alert, index) => (
+            <Alert
+              index={index}
+              value={alert.message}
+              type={alert.type}
+              fields={alerts}
+              setFields={setAlerts}
+              key={index}
+            />
+          ))}
+        </div>,
+        portal
+      )}
     </Fragment>
   );
 };
