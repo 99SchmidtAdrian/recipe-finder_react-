@@ -1,0 +1,30 @@
+.loading-animation::before {
+  display: block;
+  position: absolute;
+  left: -4px;
+  top: 0;
+  animation: loading 9300ms linear 710ms 1 forwards;
+  content: "";
+  height: 4px;
+  background-color: currentColor;
+}
+
+@keyframes loading {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  @keyframes loading {
+    from {
+      width: 0px;
+    }
+    to {
+      width: 370px;
+    }
+  }
+}
