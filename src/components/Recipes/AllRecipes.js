@@ -13,17 +13,9 @@ const AllRecipes = () => {
 
   const fetchRecipesHandler = useCallback(async () => {
     setIsFetching(true);
-    const response = await fetch(
-      "https://api.jsonbin.io/v3/c/61ef3ba7bd6e744997eb2305/",
-      {
-        headers: {
-          "X-Master-Key":
-            "$2b$10$kA9wXBWcQo0NvUAsmwlVt..O.jGDFC8ewrSQvPpfwqvFqRW7bIj9C"
-        }
-      }
-    );
+    const response = await fetch("https://api.npoint.io/b46a67e5e7b0b806263a");
     const convertedRecipes = await response.json();
-    const recipes = convertedRecipes.schemaDoc.recipes;
+    const recipes = convertedRecipes.recipes;
     setData(recipes);
     setIsFetching(false);
   }, []);
@@ -80,7 +72,7 @@ const AllRecipes = () => {
         />
       ));
     } else {
-      return <div className="text-2xl ">No result</div>;
+      return <div className="text-2xl ">No results</div>;
     }
   };
 

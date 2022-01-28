@@ -13,17 +13,9 @@ const Recipe = () => {
 
   const fetchRecipesHandler = useCallback(async () => {
     setIsFetching(true);
-    const response = await fetch(
-      "https://api.jsonbin.io/v3/c/61ef3ba7bd6e744997eb2305/",
-      {
-        headers: {
-          "X-Master-Key":
-          "$2b$10$kA9wXBWcQo0NvUAsmwlVt..O.jGDFC8ewrSQvPpfwqvFqRW7bIj9C"
-        }
-      }
-    );
+    const response = await fetch("https://api.npoint.io/b46a67e5e7b0b806263a");
     const convertedRecipes = await response.json();
-    const recipes = convertedRecipes.schemaDoc.recipes;
+    const recipes = convertedRecipes.recipes;
     setData(recipes);
     setIsFetching(false);
   }, []);
@@ -43,47 +35,79 @@ const Recipe = () => {
       if (recipe.name === keywords.keywords) {
         return (
           <React.Fragment key="">
-            <div className="text-center">
-              <h1 className="text-4xl font-semibold mt-10 mb-2 mx-auto capitalize">
-                {recipe.name}
-              </h1>
-            </div>
-            <div className="flex flex-col 2xl:flex-row 2xl:justify-evenly mt-10">
+            <h1 className="text-3xl md:text-5xl font-thin mt-10 mb-2 mx-auto capitalize w-full text-center">
+              {recipe.name}
+            </h1>
+            <div className="flex flex-col mt-10 xl:flex-row justify-evenly 2xl:justify-center">
               <div className="mb-5">
                 <img
                   src={process.env.PUBLIC_URL + recipe.src}
-                  className="h-[250px] mx-auto w-11/12 object-cover rounded-xl sm:w-[600px] sm:h-[300px] xl:w-[400px]"
+                  className="h-[250px] mx-auto w-11/12 object-cover rounded-xl sm:w-[600px] sm:h-[300px] xl:w-[300px] xl:h-[250px] 2xl:w-[400px] 2xl:h-[300px]"
                   alt={recipe.name}
                 />
               </div>
-              <div className="text-2xl font-semibold ml-5 sm:flex sm:flex-row sm:justify-evenly 2xl:text-xl">
-                <ul className="capitalize sm:w-fit 2xl:mr-10">
-                  <li className="font-bold sm:mb-1">Diets</li>
-                  {recipe.diet.map((element) => {
-                    return (
-                      <li key={element} className="ml-4">
-                        {element}
-                      </li>
-                    );
-                  })}
-                </ul>
-                <ul className="flex flex-col text-left capitalize mt-5 sm:mt-0 sm:w-fit">
-                  <li className="font-bold">Ingredients</li>
-                  {recipe.ingredients.map((element) => {
-                    return (
-                      <li key={element.type} className="ml-4">
-                        {element.amount + " " + element.type}
-                      </li>
-                    );
-                  })}
-                </ul>
+              <div className="md:flex md:flex-row md:justify-evenly lg:flex-col">
+                <div className="text-2xl font-semibold ml-5 2xl:text-xl">
+                  <h2 className="font-thin sm:mb-1 xl:before:absolute xl:before:w-[250px] xl:before:block xl:before:translate-y-[19px] xl:before:translate-x-[55px] xl:before:bg-black xl:before:h-[1px] xl:before:opacity-20 ">
+                    Diets
+                  </h2>
+                  <ul className="capitalize text-sm sm:w-fit mt-2 2xl:mr-10 space-y-1.5">
+                    {recipe.diet.map((element, index) => {
+                      return (
+                        <li
+                          key={index}
+                          className={`${
+                            element === "vegan" &&
+                            "border-green-600 text-green-600 bg-green-100 "
+                          } ${
+                            element === "gluten-free" &&
+                            "border-yellow-600 text-yellow-600 bg-yellow-100 "
+                          } ${
+                            element === "paleo" &&
+                            "border-indigo-600 text-indigo-600 bg-indigo-200 "
+                          } ${
+                            element === "keto" &&
+                            "border-blue-600 text-blue-600 bg-blue-200 "
+                          } px-4 border-2 rounded-xl w-[fit-content] ml-4 whitespace-nowrap`}
+                        >
+                          {element}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+
+                <div className="text-2xl mt-5 ml-5 2xl:text-xl md:mt-0 lg:mt-5">
+                  <h2 className="font-thin sm:mb-1 xl:before:absolute xl:before:block xl:before:translate-y-[19px] xl:before:translate-x-[115px] xl:before:bg-black xl:before:h-[1px] xl:before:opacity-20 xl:before:w-[190px]">
+                    Ingredients
+                  </h2>
+                  <ul className="flex flex-col text-base text-left mt-2 sm:w-fit">
+                    {recipe.ingredients.map((element, index) => {
+                      return (
+                        <li
+                          key={index}
+                          className="ml-4 flex flex-row space-x-1 mb-5 md:mb-2"
+                        >
+                          <div className="font-semibold w-4/12 md:w-5/12">{element.amount}</div><div className="capitalize w-8/12 md:w-7/12">{element.type}</div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </div>
             </div>
-            <div>
-              <h5 className="font-bold text-xl mb-3 mt-10">Directions</h5>
+            <div className=" w-10/12 2xl:mx-auto 2xl:w-4/6">
+              <h5 className="font-bold text-xl mb-3 mt-10 ">Directions</h5>
               <ol className="font-medium ml-10 directions">
-                {recipe.directions.map((element) => {
-                  return <li key={element.step} className="w-10/12">{element.direction}</li>;
+                {recipe.directions.map((element, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className="before:text-green-400 before:border-green-400"
+                    >
+                      {element.direction}
+                    </li>
+                  );
                 })}
               </ol>
             </div>
@@ -113,7 +137,7 @@ const Recipe = () => {
         {!isFetching && recipeFound && result()}
         {!isFetching && !recipeFound && noResult()}
       </Card>
-      <Suggestion className="xl:mb-48"/>
+      <Suggestion className="xl:mb-48" />
     </RecipesPage>
   );
 };
