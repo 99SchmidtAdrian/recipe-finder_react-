@@ -35,7 +35,7 @@ const Recipe = () => {
       if (recipe.name === keywords.keywords) {
         return (
           <React.Fragment key="">
-            <h1 className="text-3xl md:text-5xl font-thin mt-10 mb-2 mx-auto capitalize w-full text-center">
+            <h1 className="text-3xl md:text-5xl font-thin pt-5 mb-2 mx-auto capitalize w-full text-center">
               {recipe.name}
             </h1>
             <div className="flex flex-col mt-10 xl:flex-row justify-evenly 2xl:justify-center">
@@ -132,7 +132,7 @@ const Recipe = () => {
 
   return (
     <RecipesPage>
-      <Card className="border border-gray-400 mb-10 pb-10 lg:px-24">
+      <Card className=" mb-10 pb-10 lg:px-24">
         {isFetching && <Fetching className="mt-10" />}
         {!isFetching && recipeFound && result()}
         {!isFetching && !recipeFound && noResult()}

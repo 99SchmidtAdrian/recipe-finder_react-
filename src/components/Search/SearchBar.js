@@ -12,6 +12,7 @@ const SearchBar = () => {
         refFor={mainSearch}
         className="lg:w-2/5 md:w-2/4 w-4/5 p-2"
         placeholder="What are you looking for?"
+        color="white"
       />
       <div id="scroll-down" className="">
         <a href="#scroll">

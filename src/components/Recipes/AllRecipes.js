@@ -77,7 +77,7 @@ const AllRecipes = () => {
   };
 
   return (
-    <Card className="relative border border-gray-400 mb-10 2xl:mb-40">
+    <Card className="relative mb-10 2xl:mb-40">
       <Filter
         onFilter={setFiltersHandler}
         onClear={clearFilterHandler}

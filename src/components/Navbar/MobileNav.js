@@ -70,27 +70,22 @@ const MobileNav = () => {
             refFor={mobileSearch}
             className="h-8 mx-auto py-1 mt-2 w-[88%]"
             placeholder="Serch a recipe"
+            inputClass="border-b border-gray-400"
           />
-          <Link to={{ pathname: "/" }}>
-            <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
-              Home
-            </li>
-          </Link>
-          <Link to={{ pathname: "/recipes" }}>
-            <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
-              Recipes
-            </li>
-          </Link>
-          <Link to={{ pathname: "/suggest" }}>
-            <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
-              Suggest a Recipe
-            </li>
-          </Link>
-          <a href="https://en.3ok.hu/" target="_blank" rel="noreferrer">
-            <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
+          <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
+            <Link to={{ pathname: "/" }}>Home</Link>
+          </li>
+          <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
+            <Link to={{ pathname: "/recipes" }}>Recipes</Link>
+          </li>
+          <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
+            <Link to={{ pathname: "/suggest" }}>Suggest a Recipe</Link>
+          </li>
+          <li className="text-gray-700 font-bold px-3 lg:px-5 py-2 no-underline">
+            <a href="https://en.3ok.hu/" target="_blank" rel="noreferrer">
               More about veganism
-            </li>
-          </a>
+            </a>
+          </li>
         </ul>
       </Fragment>
     );

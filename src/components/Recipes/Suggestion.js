@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Card from "../ui/Card";
 import RecipeItem from "./RecipeItem";
 import Fetching from "../ui/Fetching";
@@ -20,8 +20,6 @@ const Suggestion = (props) => {
     fetchRecipesHandler();
   }, [fetchRecipesHandler]);
 
-
-
   //calculating current week
   let curr = new Date();
   let week = [];
@@ -30,20 +28,12 @@ const Suggestion = (props) => {
     let first = curr.getDate() - curr.getDay() + i;
     let day = new Date(curr.setDate(first)).toISOString().slice(0, 10);
     week.push(day);
-
   }
 
-  
-
   return (
-    <Card
-      className={
-        props.className +
-        " border border-gray-400 text-center mb-10 pb-10 xl:px-24"
-      }
-    >
+    <Card className={"text-center mb-10 pt-5 pb-10 xl:px-24 " + props.className}>
       <div>
-        <h1 className="text-2xl md:text-4xl font-semibold my-10 mx-auto">
+        <h1 className="text-2xl md:text-4xl font-semibold mb-6 mx-auto ">
           This week's suggestion
         </h1>
       </div>
@@ -52,7 +42,12 @@ const Suggestion = (props) => {
         {data.map(
           (recipe) =>
             recipe.isWeeklySuggestionOn !== undefined && (
-              <RecipeItem key={recipe.id} name={recipe.name} src={recipe.src} linkClass="mx-2" />
+              <RecipeItem
+                key={recipe.id}
+                name={recipe.name}
+                src={recipe.src}
+                linkClass="mx-2"
+              />
             )
         )}
       </div>

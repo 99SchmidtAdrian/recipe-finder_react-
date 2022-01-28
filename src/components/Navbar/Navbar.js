@@ -48,6 +48,7 @@ const Navbar = () => {
             refFor={navbarSearch}
             className="h-8 float-right mt-2 mx-auto mr-2 py-1 w-64 lg:right-8 xl:right-10 2xl:right-24"
             placeholder="What are you looking for?"
+            color="white"
           />
         </ul>
       </div>

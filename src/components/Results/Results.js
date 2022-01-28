@@ -76,7 +76,7 @@ const Results = () => {
             No results
           </div>
           <div className="font-semibold text-lg border-2 border-black p-2 rounded-xl mt-5 w-[200px] mx-auto cursor-pointer">
-            <Link to={{ pathname: "/recipes" }}>Go to recipes</Link>
+            <Link to={{ pathname: "/recipes" }}>Browse recipes</Link>
           </div>
         </div>
       );
