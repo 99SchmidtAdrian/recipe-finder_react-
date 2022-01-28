@@ -15,7 +15,7 @@
     counter-increment: step;
     content: counter(step) ". ";
     font-weight:700;
-    border: 2px solid black;
+    border: 2px solid;
     border-radius:100%;
     padding:1px 4px 1px 6px;
     top: -5px;

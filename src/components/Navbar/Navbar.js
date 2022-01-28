@@ -30,7 +30,7 @@ const Navbar = () => {
                 to={{ pathname: "/suggest" }}
                 className="block text-white text-center px-3 lg:px-5 py-2 no-underline "
               >
-                Suggest Recipes
+                Suggest a Recipe
               </Link>
             </li>
             <li className="float-left br-1 p-1 ">

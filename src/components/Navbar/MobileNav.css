@@ -1,11 +1,11 @@
 .button-line::before,
-.button-line::after{
-    content: '';
-    position:absolute
+.button-line::after {
+  content: "";
+  position: absolute;
 }
-.button-line::before{
-    transform:translateY(16px)
+.button-line::before {
+  transform: translateY(16px);
 }
-.button-line::after{
-    transform:translateY(-16px)
+.button-line::after {
+  transform: translateY(-16px);
 }

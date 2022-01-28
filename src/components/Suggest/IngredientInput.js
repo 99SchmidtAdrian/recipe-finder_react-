@@ -23,7 +23,7 @@ const IngredientInput = (props) => {
           <option value="piece">piece</option>
           <option value="g">g</option>
           <option value="ts">ts</option>
-          <option value="tbs">tbs</option>
+          <option value="tbs">tbsp</option>
           <option value="kg">kg</option>
           <option value="ml">ml</option>
           <option value="liter">liter</option>

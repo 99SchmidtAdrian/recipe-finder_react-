@@ -15,7 +15,7 @@ const RecipeItem = (props) => {
           alt={props.name + " image"}
           className="h-[150px] rounded-t-xl object-cover w-full"
         />
-        <div className="font-medium py-1 capitalize text-center ">
+        <div className="font-medium py-1 capitalize text-center min-h-[56px] flex flex-col justify-center">
           {props.name}
         </div>
       </Card>
