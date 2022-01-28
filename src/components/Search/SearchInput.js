@@ -25,11 +25,24 @@ const SearchInput = (props) => {
     }
   };
 
+  const addAlert = () => {
+    return alerts.map((alert, index) => (
+      <Alert
+        index={index}
+        value={alert.message}
+        type={alert.type}
+        fields={alerts}
+        setFields={setAlerts}
+        key={index}
+      />
+    ));
+  };
+
   return (
     <Fragment>
       <form
         className={
-          "text-center bg-gray-200 mx-auto rounded-lg relative " +
+          `text-center bg-${props.color} mx-auto rounded-lg relative ` +
           props.className
         }
       >
@@ -39,7 +52,7 @@ const SearchInput = (props) => {
           autoComplete="off"
           className={
             props.inputClass +
-            " bg-gray-200 w-5/6 sm:w-10/12 text-center outline-none"
+             ` bg-${props.color} w-5/6 sm:w-10/12 text-center outline-none`
           }
           ref={props.refFor}
         />
@@ -51,21 +64,7 @@ const SearchInput = (props) => {
           <img src={searchIcon} alt="search button" className="" />
         </button>
       </form>
-      {ReactDOM.createPortal(
-        <div className="fixed bottom-5 w-[320px] mx-auto left-0 right-0 z-50 lg:w-[370px] lg:right-10 lg:left-auto">
-          {alerts.map((alert, index) => (
-            <Alert
-              index={index}
-              value={alert.message}
-              type={alert.type}
-              fields={alerts}
-              setFields={setAlerts}
-              key={index}
-            />
-          ))}
-        </div>,
-        portal
-      )}
+      {ReactDOM.createPortal(addAlert(), portal)}
     </Fragment>
   );
 };

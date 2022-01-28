@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import RecipesPage from "../ui/RecipesPage";
 import Card from "../ui/Card";
 import "./SuggestRecipe.css";
@@ -19,6 +20,7 @@ const SuggestRecipe = () => {
   ]);
   const [directionFields, setDirectionFields] = useState([{ direction: "" }]);
   const [alerts, setAlerts] = useState([]);
+  const portal = document.getElementById("alerts");
 
   useEffect(() => {
     if (selectedImage) {
@@ -75,6 +77,19 @@ const SuggestRecipe = () => {
       ...alerts,
       { message: "Your recipe has been sent successfully."}
     ]);}
+  };
+
+  const addAlert = () => {
+    return alerts.map((alert, index) => (
+      <Alert
+        index={index}
+        value={alert.message}
+        type={alert.type}
+        fields={alerts}
+        setFields={setAlerts}
+        key={index}
+      />
+    ));
   };
 
   return (
@@ -200,18 +215,7 @@ const SuggestRecipe = () => {
         </form>
       </Card>
       <div className="fixed bottom-5 w-[fit-content] mx-auto left-0 right-0 z-50 lg:w-[370px] lg:right-10 lg:left-auto">
-        {alerts.map((alert, index) => (
-          <div key={index}>
-            <Alert
-              index={index}
-              value={alert.message}
-              type={alert.type}
-              fields={alerts}
-              setFields={setAlerts}
-              isActive={alert.isActive}
-            />
-          </div>
-        ))}
+      {ReactDOM.createPortal(addAlert(), portal)}
       </div>
     </RecipesPage>
   );
