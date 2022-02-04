@@ -71,12 +71,23 @@ const SuggestRecipe = () => {
           type: "warning"
         }
       ]);
-    }else {
+    } else {
+      // console.log(
+      //   "name field: ",
+      //   nameField,
+      //   "\ndiet fields: ",
+      //   dietFields,
+      //   "\ningredient fields: ",
+      //   ingredientFields,
+      //   "\ndirection fields: ",
+      //   directionFields
+      // );
 
-    setAlerts([
-      ...alerts,
-      { message: "Your recipe has been sent successfully."}
-    ]);}
+      setAlerts([
+        ...alerts,
+        { message: "Your recipe has been sent successfully." }
+      ]);
+    }
   };
 
   const addAlert = () => {
@@ -215,7 +226,7 @@ const SuggestRecipe = () => {
         </form>
       </Card>
       <div className="fixed bottom-5 w-[fit-content] mx-auto left-0 right-0 z-50 lg:w-[370px] lg:right-10 lg:left-auto">
-      {ReactDOM.createPortal(addAlert(), portal)}
+        {ReactDOM.createPortal(addAlert(), portal)}
       </div>
     </RecipesPage>
   );
