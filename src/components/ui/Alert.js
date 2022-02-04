@@ -55,7 +55,7 @@ const Alert = (props) => {
               strokeWidth={2}
               d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
-          </svg>{" "}
+          </svg>
         </div>
         <div className="py-3 px-4 font-semibold text-black">{props.value}</div>
         <button
