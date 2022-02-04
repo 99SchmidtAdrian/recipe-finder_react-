@@ -88,7 +88,7 @@ const Recipe = () => {
                           key={index}
                           className="ml-4 flex flex-row space-x-1 mb-5 md:mb-2"
                         >
-                          <div className="font-semibold w-4/12 md:w-5/12">{element.amount}</div><div className="capitalize w-8/12 md:w-7/12">{element.type}</div>
+                          <div className="font-semibold">{element.amount} {element.type}</div>
                         </li>
                       );
                     })}
@@ -113,7 +113,7 @@ const Recipe = () => {
             </div>
           </React.Fragment>
         );
-      } else return "";
+      } else return null
     });
   };
 
